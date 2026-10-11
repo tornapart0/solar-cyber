@@ -21,12 +21,11 @@
 | 1x7 2.54mm female sockets | 15.24mm row spacing on carrier; use included XIAO male headers if supplied | 2 | $0.33 | $0.66 | — |
 | JST SH SM04B-SRSS-TB horizontal four-pin connector | Must match saved J2 footprint | 1 | $0.35 | $0.35 | — |
 | 0805 10uF 10V X5R and 100nF 16V capacitors | Populate both decoupling capacitors | 1 | $0.20 | $0.20 | — |
-| Remaining parts allowance | Use for price variation or small hardware; not a purchased component | 1 | $0.86 | $0.86 | — |
 | Eight insulated DAC wires and insulating stand-offs | If not available add actual order cost; reserve may be insufficient | 1 | $0.00 | $0.00 | — |
 | USB-C data cable; USB power; headphones; existing laptop | No purchase requested for these; model runs on laptop | 1 | $0.00 | $0.00 | — |
 | Battery connectors and battery switch | USB-only prototype; leave battery section unpopulated; no battery or solar charging included | 1 | $0.00 | $0.00 | — |
-| **Parts subtotal** | — | — | — | **$30.01** | — |
+| **Parts subtotal** | — | — | — | **$29.15** | — |
 | **Tax & shipping** | — | — | — | **$0.00** | — |
-| **Total** | — | — | — | **$30.01** | — |
+| **Total** | — | — | — | **$29.15** | — |
 
-**$0.01 over the tier's funding.** Every tier gives a fixed amount for parts, so this needs cutting back or a higher tier.
+$0.85 left of the tier's funding.
