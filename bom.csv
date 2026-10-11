@@ -1,0 +1,15 @@
+reference,part,quantity,unit_cost_usd,line_total_usd,purchase_url,price_status,notes
+U1,Seeed XIAO ESP32S3 standard with antenna,1,7.49,7.49,https://www.seeedstudio.com/XIAO-ESP32S3-p-5627.html,Listed price,Existing carrier pinout; USB power
+Display,SparkFun Qwiic OLED 0.91 inch 128x32 LCD-24606,1,9.95,9.95,https://www.sparkfun.com/sparkfun-qwiic-oled-display-0-91-in-128x32-lcd-24606.html,Listed price,Budget substitution for Adafruit 4440; SSD1306; confirm 0x3C and physical mounting before ordering
+Audio,Adafruit TLV320DAC3100 headphone DAC breakout 6309,1,6.95,6.95,https://www.adafruit.com/product/6309,Listed price,Use existing J1 eight-wire harness; headphone jack included
+PCB,SPROUT 60x50mm two-layer 1.6mm green FR4 HASL bare boards,5,0.40,2.00,https://jlcpcb.com/help/article/how-do-i-place-an-order,Advertised starting price; exact Gerber quote pending,Full five-board minimum-order cost; build one unit; no assembly or ENIG; delivery excluded
+Display cable,STEMMA QT / Qwiic 50mm four-pin cable,1,0.95,0.95,https://www.adafruit.com/product/4210,Listed price,Connect J2 to external OLED
+SW1 SW2 SW3,6mm four-leg THT momentary switches,3,0.20,0.60,https://www.lcsc.com/,Target allowance; exact seller SKU and pack price pending,Match existing 6.5x4.5mm pin spacing before purchase
+U1 sockets,1x7 2.54mm female sockets,2,0.325,0.65,https://www.lcsc.com/,Target allowance; exact seller SKU and pack price pending,15.24mm row spacing on carrier; use included XIAO male headers if supplied
+J2,JST SH SM04B-SRSS-TB horizontal four-pin connector,1,0.35,0.35,https://www.lcsc.com/,Target allowance; exact SKU and checkout price pending,Must match saved J2 footprint
+C1 C2,0805 10uF 10V X5R and 100nF 16V capacitors,1,0.20,0.20,https://www.lcsc.com/,Target allowance for pair; exact SKUs and minimum quantities pending,Populate both decoupling capacitors
+Reserve,Remaining parts allowance,1,0.86,0.86,,Unallocated budget,Use for price variation or small hardware; not a purchased component
+J1 harness / mounting,Eight insulated DAC wires and insulating stand-offs,1,0.00,0.00,,Assumed existing workshop supplies; ownership not verified,If not available add actual order cost; reserve may be insufficient
+USB / headphones / laptop,USB-C data cable; USB power; headphones; existing laptop,1,0.00,0.00,,Assumed existing equipment; ownership not verified,No purchase requested for these; model runs on laptop
+J3 J4 SW4 battery,Battery connectors and battery switch,0,0.00,0.00,,Not populated in this budget variant,USB-only prototype; leave battery section unpopulated; no battery or solar charging included
+Delivery / tax,Shipping tax customs and seller minimum-order overhead,1,,,,Excluded; checkout quote pending,30 USD is a parts-budget target not a delivered-cost quote; three module vendors plus PCB vendor may incur shipping

@@ -1,0 +1,4 @@
+(fp_lib_table
+ (version 7)
+ (lib (name "Sprout") (type "KiCad") (uri "${KIPRJMOD}/Sprout.pretty") (options "") (descr "Sprout carrier"))
+)
