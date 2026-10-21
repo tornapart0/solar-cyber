@@ -1,18 +1,19 @@
-I wanted a small cyberdeck I could keep on a keychain and use while working on projects. This is SPROUT, a solarpunk themed board with a weather screen, buttons, and a headphone connection. The assistant runs on my laptop because I wanted to keep the device small.
+I wanted a small cyberdeck I could keep on a keychain and use while working on projects, in a workshop. Ibntroducing the new greates tempo lab assistant: Sprout, a solarpunk themed board with a weather screen, buttons, and a headphone connection. The assistant runs on my laptop because I wanted to keep the device small, eventually I want to move it onto a pi and have it be native.
 
-The PCB is a 60 by 50 mm carrier for a Seeed XIAO ESP32-S3, an Adafruit 4440 OLED, and an Adafruit 6309 headphone DAC breakout. It has leaves on the silkscreen and a sun around the keyring hole. The DAC connects with a wire harness and needs its own mount.
+The PCB is a 60 by 50 mm carrier for a Seeed XIAO ESP32-S3, an Adafruit 4440 OLED, and an Adafruit 6309 headphone DAC breakout. It has leaves on the silkscreen and a sun around the keyring hole. The DAC connects with a wire harness and needs its own mount, so youy can put in headphones suring the event.
 
-Download solar-cyber.zip from this repository and unzip it. The complete project is inside, with the folders kept together. Open Sprout.kicad_pro in KiCad to work on the board. The fabrication folder has the Gerbers and drill files, and BOM.csv has the parts list. The software folder has the device code, laptop bridge, simulator, and setup instructions.
+## Instructions
+Download solar-cyber.zip from this repo and unzip it. The complete project is inside, with the folders kept together. Open Sprout.kicad_pro in KiCad to work on the board(Let me kn ow if you have any advice as this was my first board). The fabrication folder has the Gerbers and drill files, and BOM.csv has the parts list. The software folder has the device code, laptop bridge, simulator, and setup instructions!
 
-To run the laptop side, install Python 3.10 or newer and Ollama. Run ollama pull qwen3:1.7b, then open a terminal in the software folder and run python3 start_workshop.py. Weather defaults to Fort Lauderdale in Fahrenheit and mph. The workshop assistant uses the local model. Speech uses macOS say and afconvert.
+To run the laptop side, install Python 3.10 or newer and Ollama. Run ollama pull qwen3:1.7b, then open a terminal in the software folder and run python3 start_workshop.py. Weather defaults to wherever you live!! in Fahrenheit and mph. The workshop assistant uses the local model. Speech uses macOS say and afconvert.
 
-For the device, copy Config.example.h to Config.h in software/firmware/Sprout and add your Wi-Fi details, laptop address, and bridge token. Run the laptop bridge with --lan so the keychain can connect on your local Wi-Fi. Keep Config.h and the generated token private. Open Sprout.ino in Arduino IDE with the XIAO ESP32S3 board selected, install the libraries listed in the software README, and rebuild before uploading. The included binaries use placeholder settings.
+For the device, copy Config.example.h to Config.h in software/firmware/Sprout and add your Wi-Fi details, laptop address, and bridge token. Run the laptop bridge with lan so the keychain can connect on your local Wi-Fi.(eventually want to add individual network to connect to computer. Keep Config.h and the generated token private. Open Sprout.ino in Arduino IDE with the XIAO ESP32S3 board selected, install the libraries listed in the software README, and rebuild before uploading. The included binaries use placeholder settings.
 
-The simulator files are in software/simulator. Copy sketch.ino, diagram.json, and libraries.txt into a new ESP32-S3 project on Wokwi and start it. It tests the screen and buttons using labelled demo weather and answers. It does not simulate the battery, physical PCB copper, or headphone electronics.
+The simulator files are in software/simulator. Copy sketch.ino, diagram.json, and libraries.txt into a new ESP32-S3 project on Wokwi and start it. It tests the screen and buttons using labelled demo weather and answers. It does not simulate the battery, physical PCB copper, or headphone electronics(cus i could not figurw them out online).
 
-The PCB passed the saved KiCad DRC and ERC checks. The firmware compiled, 19 core checks and 13 bridge tests passed, and the simulator was tested. Real weather, local model responses, and speech conversion were also tested on the laptop. I still need to assemble the physical board and check fit, charging, current draw, Wi-Fi, and headphone output before calling it finished.
+The PCB passed the saved KiCad DRC and ERC checks. The firmware compiled, 19 core checks and 13 bridge tests passed, and the simulator was tested.
 
-The board render is below. The editable board and schematic and a copy of the firmware source are also visible directly in this repo. Use the ZIP for the complete folder layout and custom footprint library. bom.csv is the USB prototype budget estimate; it substitutes a SparkFun OLED, assumes some existing workshop supplies, and still needs exact small-part and delivery quotes. Shipping and tax are not included in its $30 parts target.
+The board render is below. The editable board, schematic, and a copy of the firmware source are also available directly in this repo. Use the ZIP for the complete folder layout and custom footprint library. bom.csv is the USB prototype budget estimate; it substitutes a SparkFun OLED, assumes some existing workshop supplies, and still needs exact small-part and delivery quotes. 
 
 ## Bill of materials (BOM)
 
@@ -38,5 +39,3 @@ The board render is below. The editable board and schematic and a copy of the fi
 
 
 ![SPROUT solarpunk PCB render](board-preview.png)
-
-Purchasing notes: prices above retain the original $29.15 parts estimate, not a current checkout quote. LCSC minimum quantities can increase the order cost. The $0.85 balance excludes delivery and tax. The CSV socket allowance is rounded to $0.33 each to match this table. C1 uses Murata C440198 (10 µF, 50 V, X5R, 0805), and C2 uses Yageo C49678 (100 nF, 50 V, X7R, 0805); these are higher voltage selections than the schematic minimums. Confirm switch pin spacing against the saved footprint before buying. The 50 mm cable is Adafruit #4399.
