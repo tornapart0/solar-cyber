@@ -30,7 +30,11 @@ Cad Images:
 
 ![Screenshot 2026-10-10 at 9.52.51 AM](https://halflife.hackclub-assets.com/hackclub-half-life/sessions/SPv1FZwZPr7z3ca5FSyaByS0lRXkH81L/9ad070215b73ce1a41dd96dc4821fdba0914395c016112330719475f2822fe1e.png)
 
-This session i spent maki8ng the final cad for the PCB in order to create my solarpunk inspired cyberdeck, i9t will be a workshop assistant that will connect to the internet and a laptoip to run a llm so that when in a workshop you will have a little key chain to assist you.
+I worked on the PCB design for SPROUT, a small solarpunk workshop assistant that can hang from a keyring. The goal was to put the screen and a few controls on the device while using a laptop for the language model. That split keeps the electronics small enough for the keychain idea and gives the device a way to show workshop answers and weather over Wi-Fi.
+
+The saved design is a 60 × 50 mm carrier for a XIAO ESP32-S3. It includes three buttons, an I2C connection for the OLED, and an eight-wire harness connection for a separate headphone DAC breakout. The DAC needs its own support in the enclosure; its harness pads are not a direct mounting footprint for the breakout. I also worked on the visual theme, with leaf artwork and a sun around the 4 mm keyring hole. The screenshots show the board layout and the ideas I used to develop that shape and appearance.
+
+The resulting files include an editable schematic and PCB, local libraries, and fabrication outputs. The saved KiCad reports record zero DRC violations, zero unconnected items, zero schematic parity issues, and zero ERC violations under the project's rules. Those checks cover the design files, but I still need a physical fit check for the modules, wiring, and enclosure before ordering a batch. The next hardware step is to print the board at 1:1 scale and check the component envelopes before assembling one prototype.
 
 Ideating
 
@@ -44,7 +48,11 @@ Ideating
 
 **5h**
 
-I wrote the code for the screen and the main PCB. I also experimented with using a simulator to test the board. I am thinking about adding a case for the PCB. Additionally, I also worked on implementing cloud LLM usage. The oled simulator was quite bad also, so I would like to test it in real life.
+I worked on the screen and button firmware and experimented with an ESP32-S3 simulator to see how the interface would behave before assembling the PCB. The device has WEATHER, PREV, and ASK controls, so the interface needs short responses and pagination to make answers readable on a 128 × 32 OLED. The saved firmware includes button handling and the screen logic, plus Wi-Fi requests to a laptop bridge.
+
+I explored the LLM connection during this session. My original note called this cloud LLM usage; the supplied implementation instead runs Ollama on the laptop and has the XIAO request answers through the bridge over local Wi-Fi. The laptop also fetches weather, and optional speech conversion produces PCM audio for the headphone DAC. The model does not run on the XIAO, and this version has no microphone or keyboard: ASK uses a preset or laptop-selected question.
+
+The simulator helped check the display and button flow using labelled demo weather and answers, but I found its OLED presentation limiting and still want to see the interface on the actual screen. The saved software records report a successful firmware compile, 19 core checks, and 13 bridge tests, along with laptop tests of weather, local model replies, and speech conversion. These are software results, not evidence that the physical board or headphone circuit works. Next I need to configure the real device, bring up the display over USB power, and test the DAC and Wi-Fi on assembled hardware. I also started thinking about a case to protect the board and support the external modules.
 
 ![Screenshot 2026-10-10 at 10.47.36 PM](https://halflife.hackclub-assets.com/hackclub-half-life/sessions/SPv1FZwZPr7z3ca5FSyaByS0lRXkH81L/76b627377aefacb6efd2a02cfe678d59eff2e15756d4eef1f5d0eb4e1906d491.png)
 
@@ -60,7 +68,11 @@ I wrote the code for the screen and the main PCB. I also experimented with using
 
 **3h**
 
-Modeled half of the Chassis for the key chain. I added a slot for the board, with a cutout for the buttons and screen, I plan to add a hinge before making it so it has the mini notebook keychain form factor before printing it.
+I modeled one half of the keychain chassis around the PCB, using a slot to locate the board and cutouts to keep the buttons and screen accessible. I want the finished object to open like a miniature notebook, so this session focused on the first shell half and the arrangement of its openings. The attached screenshots record that CAD stage.
+
+The enclosure has to support more than the bare PCB. The display sits outside the carrier, and the headphone DAC connects through a wire harness and needs a separate mount with access to its jack. Those constraints mean that a board slot alone is not enough to prove everything will fit. The shell still needs clearance for components, trimmed leads, wiring, and insulating supports, while keeping the USB connection and controls usable.
+
+I have not finished the hinge or verified a printed enclosure. The next CAD step is to add the hinge and matching half, then check how the assembly closes around the board and external modules. Before printing a final case, I need to compare the CAD openings with actual component dimensions and check that the screen and buttons line up without putting pressure on the wiring. This entry describes an enclosure design in progress, not a completed physical assembly.
 
 ![Screenshot 2026-10-10 at 11.06.26 PM](https://halflife.hackclub-assets.com/hackclub-half-life/sessions/SPv1FZwZPr7z3ca5FSyaByS0lRXkH81L/4a4c79a3197d3ac97d3f6653603a811c991fe5b91a14f8fdce2712bb7c8f567f.png)
 
